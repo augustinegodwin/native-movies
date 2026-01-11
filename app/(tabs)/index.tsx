@@ -1,5 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
+  Button,
   FlatList,
   Image,
   Pressable,
@@ -12,11 +13,12 @@ import { Fragment } from "react";
 import { images, offers } from "@/constants";
 import { globalStyles, theme } from "@/styles/theme"; // Adjust this path to your theme file
 import CartButton from "@/components/cartButton";
-
+import * as Sentry from "@sentry/react-native";
+import { useAuthStore } from "@/store/auth.store";
 export default function Index() {
+  const { user } = useAuthStore();
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.white }}>
-      
+    <SafeAreaView style={{ flex: 1,height:"100%", backgroundColor: theme.colors.white }}>
       <FlatList
         data={offers}
         keyExtractor={(item, index) => index.toString()}
@@ -84,42 +86,40 @@ export default function Index() {
         }}
         // Replaced contentContainerClassName with style
         contentContainerStyle={{ paddingBottom: 112, paddingHorizontal: 20 }}
-       ListHeaderComponent={()=>(
-        <View
-        style={[
-          globalStyles.flexBetween,
-          { marginVertical: 20, },
-        ]}
-      >
-        <View style={{ alignItems: "flex-start" }}>
-          <Text
-            style={[globalStyles.smallBold, { color: theme.colors.primary }]}
-          >
-            DELIVER TO
-          </Text>
-          <TouchableOpacity
-            style={[globalStyles.flexCenter, { marginTop: 2, gap: 4 }]}
-          >
-            <Text
-              style={[
-                globalStyles.paragraphBold,
-                { color: theme.colors.dark100 },
-              ]}
-            >
-              Augustine, Croatia
-            </Text>
-            <Image
-              source={images.arrowDown}
-              style={{ width: 12, height: 12 }}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-        </View>
+        ListHeaderComponent={() => (
+          <View style={[globalStyles.flexBetween, { marginVertical: 20 }]}>
+            <View style={{ alignItems: "flex-start" }}>
+              <Text
+                style={[
+                  globalStyles.smallBold,
+                  { color: theme.colors.primary },
+                ]}
+              >
+                DELIVER TO
+              </Text>
+              <TouchableOpacity
+                style={[globalStyles.flexCenter, { marginTop: 2, gap: 4 }]}
+              >
+                <Text
+                  style={[
+                    globalStyles.paragraphBold,
+                    { color: theme.colors.dark100 },
+                  ]}
+                >
+                  Augustine, Croatia
+                </Text>
+                <Image
+                  source={images.arrowDown}
+                  style={{ width: 12, height: 12 }}
+                  resizeMode="contain"
+                  tintColor={"#F2F2F2"}
+                />
+              </TouchableOpacity>
+            </View>
 
-            <CartButton/>
-      </View>
-
-       )}
+            <CartButton />
+          </View>
+        )}
       />
     </SafeAreaView>
   );
