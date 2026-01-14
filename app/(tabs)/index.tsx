@@ -87,8 +87,8 @@ export default function Index() {
         // Replaced contentContainerClassName with style
         contentContainerStyle={{ paddingBottom: 112, paddingHorizontal: 20 }}
         ListHeaderComponent={() => (
-          <View style={[globalStyles.flexBetween, { marginVertical: 20 }]}>
-            <View style={{ alignItems: "flex-start" }}>
+          <View style={[globalStyles.flexBetween, { marginVertical: 20 ,flexDirection:"row"}]}>
+            <View style={{ alignItems: "flex-start",display:"flex" }}>
               <Text
                 style={[
                   globalStyles.smallBold,
@@ -98,7 +98,7 @@ export default function Index() {
                 DELIVER TO
               </Text>
               <TouchableOpacity
-                style={[globalStyles.flexCenter, { marginTop: 2, gap: 4 }]}
+                style={[globalStyles.flexCenter, { marginTop: 2, gap: 4 ,flexDirection:"row"}]}
               >
                 <Text
                   style={[
@@ -112,7 +112,7 @@ export default function Index() {
                   source={images.arrowDown}
                   style={{ width: 12, height: 12 }}
                   resizeMode="contain"
-                  tintColor={"#F2F2F2"}
+                  
                 />
               </TouchableOpacity>
             </View>

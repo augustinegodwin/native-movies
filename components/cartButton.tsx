@@ -8,9 +8,10 @@ const CartButton = () => {
     return (
         <TouchableOpacity style={globalStyles.cartBtn}>
             <Image
-                source={images.bag}
-                style={{width:20,height:20}}
+                source={images.cart}
+                style={{width:24,height:24}}
                 resizeMode='contain'
+                tintColor={"#000"}
             />
             {
                 totalItems >0 && (

@@ -2,7 +2,7 @@ import { StyleSheet, Platform } from "react-native";
 
 export const theme = {
   colors: {
-    primary: "#0066FF", // Replace with your actual primary hex
+    primary: "#FE8C00", // Replace with your actual primary hex
     dark100: "#1A1A1A",
     gray500: "#6B7280",
     white: "#FFFFFF",
@@ -15,17 +15,18 @@ export const theme = {
 export const globalStyles = StyleSheet.create({
   // UTILITIES
   flexCenter: {
-    flexDirection: "row",
+    display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   flexBetween: {
-    flexDirection: "row",
+    display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
   },
   flexStart: {
-    flexDirection: "row",
+    // flexDirection: "row",
+    display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
   },
@@ -35,7 +36,7 @@ export const globalStyles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: theme.colors.dark100,
+    backgroundColor: "rgba(0,0,0,0.085)",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -84,6 +85,23 @@ export const globalStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
   },
+  filterButton: {
+    paddingHorizontal: 24,       // px-6 (6 * 4)
+    paddingVertical: 12,         // py-3 (3 * 4)
+    borderRadius: 15,          // rounded-full
+    marginRight: 8,              // mr-2 (2 * 4)
+    backgroundColor: '#ffffff',  // Usually needed for shadows to be visible
+    zIndex:2,
+    // shadow-sm shadow-black/10
+    // shadowColor: 'rgba(0, 0, 0, 0.1)',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 1,
+    // shadowRadius: 2,
+    // elevation: 2,                // Android shadow depth
+  },
   searchbar: {
     position: "relative",
     flexDirection: "row",
@@ -98,6 +116,34 @@ export const globalStyles = StyleSheet.create({
       ios: { shadowColor: "#000", shadowOpacity: 0.1, shadowRadius: 10 },
       android: { elevation: 5 },
     }),
+  },
+  searchbarContainer: {
+    position: 'relative',           // relative
+    flexDirection: 'row',           // flex-row
+    alignItems: 'center',            // items-center
+    justifyContent: 'center',       // justify-center
+    width: '100%',                  // w-full
+    backgroundColor: '#ffffff',     // bg-white
+    borderRadius: 15,             // rounded-full
+    gap: 20,                        // gap-5 (5 * 4)
+    // paddingHorizontal: ,          // Added for internal spacing
+    borderWidth:2,
+    borderColor:"rgba(0,0,0,.075)",
+    // shadow-md shadow-black/10
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 6,
+    elevation: 6,                   // Android shadow
+  },
+  searchInput: {
+    flex: 1,                        // Take up remaining space
+    fontFamily: 'Quicksand-Medium', // font-quicksand-medium
+    color: '#1A1A1A',               // text-dark-100 (assuming a dark hex)
+    fontSize: 16,
   },
   input: {
     borderRadius: 8,
@@ -123,6 +169,29 @@ export const globalStyles = StyleSheet.create({
       ios: { shadowColor: "#000", shadowOpacity: 0.2, shadowRadius: 10 },
       android: { elevation: 6 },
     }),
+  },
+  menuCard: {
+    position: 'relative',
+    paddingVertical: 36,        // py-9 (9 * 4)
+    paddingHorizontal: 14,      // px-3.5 (3.5 * 4)
+    paddingTop: 96,             // pt-24 (24 * 4)
+    display: 'flex',            // flex
+    flexDirection: 'column',    // Default in RN
+    alignItems: 'center',       // items-center
+    justifyContent: 'flex-end', // justify-end
+    backgroundColor: '#FFFFFF', // bg-white
+    borderRadius: 24,           // rounded-3xl
+    borderWidth:1,
+    borderColor:"rgba(0, 0, 0, 0.05)",
+    // shadow-md shadow-black/10
+    shadowColor: 'rgba(0, 0, 0, 0.4)',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 6,
+    elevation: 6,               // Elevation for Android shadow
   },
   authLogo: {
     alignSelf: "center", // self-center
@@ -201,10 +270,10 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: "100%", // min-h-full
-   // gap-1 (1 * 4 = 4px)
-    marginTop: 28, // mt-12 (12 * 4 = 48px),
-    width:"100%",
-    gap:4
+    // gap-1 (1 * 4 = 4px)
+    marginTop: 30, // mt-12 (12 * 4 = 48px),
+    width: "100%",
+    gap: 4,
   },
   // TYPOGRAPHY
   h1Bold: {

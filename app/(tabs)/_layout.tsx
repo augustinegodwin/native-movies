@@ -22,7 +22,7 @@ const TabBarIcon = ({ focused, icon, title }: TabBarIconProps) => {
       >
         {title}
       </Text>
-    </View>
+    </View> 
   );
 };
 const TabLayout = () => {
@@ -67,7 +67,7 @@ const TabLayout = () => {
         options={{
           title: "Search",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon title="Search" icon={images.search} focused={focused} />
+            <TabBarIcon title="Explore" icon={images.search} focused={focused} />
           ),
         }}
       />
@@ -76,7 +76,7 @@ const TabLayout = () => {
         options={{
           title: "Cart",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon title="Cart" icon={images.bag} focused={focused} />
+            <TabBarIcon title="Cart" icon={images.cart} focused={focused} />
           ),
         }}
       />
